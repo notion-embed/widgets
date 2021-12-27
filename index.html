@@ -1,2 +1,58 @@
-<div class="cleanslate w24tz-current-time w24tz-middle" style="display: inline-block !important; visibility: hidden !important; min-width:300px !important; min-height:145px !important;"><p><a href="//24timezones.com/Hanoi/time" style="text-decoration: none" class="clock24" id="tz24-1640594715-c195-eyJob3VydHlwZSI6IjI0Iiwic2hvd2RhdGUiOiIxIiwic2hvd3NlY29uZHMiOiIxIiwiY29udGFpbmVyX2lkIjoiY2xvY2tfYmxvY2tfY2I2MWM5N2QxYjdlZjU1IiwidHlwZSI6ImRiIiwibGFuZyI6ImVuIn0=" title="actual time Hanoi" target="_blank">Hanoi</a></p><div id="clock_block_cb61c97d1b7ef55"></div></div>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+<html> 
+<head>
+    <title>Greeting Message</title> 
+    <style>
+#lbl {
+    font-family: monospace;
+    font-size: xx-large;
+    color: #626262;
+    padding: 5px;
+    border: 1px solid #ececec;
+    text-align: center;
+    line-height: 1.5;
+    height:85%
+
+
+}
+#date{
+    font-size:large;
+}
+body{
+    background-color: aliceblue;
+}
+    </style>
+</head>
+<body>
+    <div id="lbl"></div>
+</body>
+
+<script>
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    
+    var today = new Date();
+    var hrs = today.getHours();
+    var dayOfWeek = weekday[today.getDay()];
+    var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
+
+    var greet;
+
+    if (hrs < 12)
+        greet = 'Good Morning  ';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Good Afternoon ';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = 'Good Evening  ';
+
+    document.getElementById('lbl').innerHTML =
+        greet+=`<div id="date"> It's ${date}</div>`;
+</script> 
+</html>
+
